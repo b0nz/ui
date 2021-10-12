@@ -4,8 +4,6 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // black
-        'evblack': '#2b2b2b',
         // green
         'evgreen-50': '#B1DDC7',
         'evgreen-100': '#8ACCAB',
@@ -22,7 +20,7 @@ module.exports = {
         'evblue-100': '#8AABCC',
         'evblue-200': '#638FBB',
         'evblue-300': '#3C73AA',
-        'evblue-400': '#3C73AA',
+        'evblue-400': '#155799',
         'evblue-500': '#134E8A',
         'evblue-600': '#11467A',
         'evblue-700': '#0F3D6B',
@@ -40,6 +38,14 @@ module.exports = {
         'evred-200': '#F3686D',
         'evred-300': '#F04249',
         'evred-400': '#ED1C24',
+        // gray
+        'evgray': '#EAEAEA',
+        'evgray-50': '#D4D4D4',
+        'evgray-100': '#AAAAAA',
+        'evgray-200': '#939598',
+        'evgray-300': '#808080',
+        'evgray-400': '#555555',
+        'evgray-500': '#2B2B2B',
       }
     },
   },

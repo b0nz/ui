@@ -20,6 +20,7 @@ const extensions = ['.js', '.jsx', '.ts', '.tsx']
 export default {
   input: {
     index: 'src/index.tsx',
+    button: 'src/components/Button/index.tsx',
   },
   external: [
     './src'

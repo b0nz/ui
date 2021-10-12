@@ -10,8 +10,8 @@ export default {
 export const Default = (args: any) => <Button {...args}>Button text</Button>
 export const withStyles = (args: any) => <Button {...args}>Button text</Button>
 export const withBlock = (args: any) => <Button {...args}>Button text</Button>
-export const withLoadingCentered = (args: any) => (
-  <Button {...args}>Loading icon is centered</Button>
+export const withLoading = (args: any) => (
+  <Button {...args}>Loading</Button>
 )
 export const WithRef = () => {
   const buttonRef = useRef<any>(null)
@@ -76,7 +76,7 @@ withBlock.args = {
   block: true,
 }
 
-withLoadingCentered.args = {
+withLoading.args = {
   loading: true,
 }
 

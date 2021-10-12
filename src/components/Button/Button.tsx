@@ -77,7 +77,6 @@ const Button = forwardRef<RefHandle, ButtonProps>(
     }))
 
     // styles
-    const showIcon = loading || icon
     let classes = [ButtonStyles['btn']]
     let containerClasses = [ButtonStyles['btn-container']]
     classes.push(ButtonStyles[`btn-blue-${type}`])
@@ -135,11 +134,7 @@ const Button = forwardRef<RefHandle, ButtonProps>(
       return (
         <span ref={containerRef} className={containerClasses.join(' ')}>
           <RenderedButton>
-            {showIcon &&
-              (loading ? (
-                <CgSpinner className={iconLoaderClasses.join(' ')} />
-              ) : null)}
-            {children && <span>{children}</span>}
+            {loading ? (<CgSpinner className={iconLoaderClasses.join(' ')} />) : <span>{children}</span>}
           </RenderedButton>
         </span>
       )

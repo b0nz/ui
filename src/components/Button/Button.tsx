@@ -141,4 +141,4 @@ const Button = forwardRef<RefHandle, ButtonProps>(
   }
 )
 
-export default Button;
+export default Button

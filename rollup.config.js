@@ -1,12 +1,14 @@
 import babel from '@rollup/plugin-babel'
-import typescript from 'rollup-plugin-typescript2';
 import external from 'rollup-plugin-peer-deps-external'
 import postcss from 'rollup-plugin-postcss-modules'
 import del from 'rollup-plugin-delete'
 import pkg from './package.json'
-
+import typescript from 'rollup-plugin-typescript2'
+// so JS can be rolled with TS
+// remove when JS files have been removed
 import nodeResolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
+
 
 console.log('Expected Externals', [
   ...Object.keys(pkg.dependencies || {}),
@@ -23,7 +25,9 @@ export default {
     button: 'src/components/Button/index.tsx',
   },
   external: [
-    './src'
+    ...Object.keys(pkg.dependencies || {}),
+    ...Object.keys(pkg.peerDependencies || {}),
+    './src',
   ],
   output: [
     {
@@ -31,23 +35,24 @@ export default {
       format: 'cjs',
       preserveModules: true,
       preserveModulesRoot: 'src',
-      exports: 'named'
+      exports: 'named',
     },
     {
       dir: 'dist/esm',
       format: 'es',
       preserveModules: true,
       preserveModulesRoot: 'src',
-      exports: 'named'
-    }
+      exports: 'named',
+    },
   ],
-  plugin: [
+  plugins: [
     external(),
     typescript(),
+    // so JS can be rolled with TS
+    // remove when JS files have been removed
     nodeResolve({
       ignoreGlobal: false,
       include: ['node_modules/**'],
-      // eslint-disable-next-line no-undef
       extensions,
       // skip: keys(EXTERNALS), // <<-- skip: ['react', 'react-dom']
     }),
@@ -56,6 +61,7 @@ export default {
       include: 'node_modules/**',
     }),
     postcss({
+      // plugins: require('./postcss.config').plugins,
       plugins: [
         require('postcss-import'),
         require('tailwindcss'),
@@ -79,5 +85,5 @@ export default {
       extensions,
     }),
     del({ targets: ['dist/*'] }),
-  ]
+  ],
 }

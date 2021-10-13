@@ -6,7 +6,7 @@
     "allowSyntheticDefaultImports": true,
     "jsx": "react-jsx",
     "moduleResolution": "node",
-    // "noImplicitAny": true,
+    "noImplicitAny": true,
     "preserveConstEnums": true,
     "target": "es6",
     "module": "esnext",
@@ -23,10 +23,10 @@
     "noFallthroughCasesInSwitch": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true,
+    "noEmit": true
   },
   "include": [
-    "src"
+    "src/components/**/*"
   ],
   "exclude": [
     "node_modules"
